@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		
+		<!-- 
+			Class: COSC 231.10 
+			Name: Alex McNulty
+			EID: E00584901
+			Lab: 05 of 10 
+			Date: 2022-02-19 SAT T 23:59:00 Z-05:00  
+ 
+			Requires: external Lab_05.css file (in css dir)
+			 
+			Description:  A single page website with 4 lists. The first list
+			is an index of the other three, and links to each list. Buttons before
+			each of the 2nd, 3rd, and 4th lists output the lists to the console. 
+		-->
+	
+		<meta charset="UTF-8">
+		<title>Lab 05 of 10</title>
+		
+		<link rel="stylesheet" href="css/lab_05.css">
+		
+		<style>
+			
+			hr {
+				float: left;
+				width: 75%;
+			}
+			
+			.lists {
+				background-color: lightgrey;
+				padding: 30px;
+				border: 1px solid black;
+			}
+			
+			.list_divs {
+				margin-bottom: 25%;
+				width: 75%;
+			}
+			
+			#copyright {
+				clear: left; 
+			}
+			
+			h2 {
+				clear: left;
+			}
+			
+			dt {
+				font-weight: bold;
+			}
+			
+			dd {
+				font-style: italic;
+			}
+				
+			ul {
+				list-style-type: circle;
+			}
+			
+			ol {
+				list-style-type: decimal-leading-zero;
+			}
+				
+			ul, ol {
+				list-style-position: inside;
+			}
+			
+			#list_0 ul {
+				list-style-type: disc;
+			}
+			
+			#list_0 ul {
+				list-style-position: inside; 
+			}
+			
+			#list_03 dl, ul {
+				list-style-type: none; 
+			}
+			
+		</style>
+			
+		
+		<script>
+			// lab 04 javascript
+			function print_stars() {
+				console.log("**********");
+			}
+			
+			function toggle(elt) {
+				print_stars();
+				
+				console.log("DEBUG - Before: " + elt.innerHTML);
+				
+				console.log("ID: " + elt.id); 
+				
+				const btn = document.getElementById(elt.id); 
+				
+				const label = btn.innerHTML;
+				
+				const div = document.getElementById(btn.nextElementSibling.id);
+				
+				const lst = div.children[1];			
+				
+				// if/else condition won't really change between lab 4 & 5				
+				if (label == "Show List") {
+					// change button label to show
+					document.getElementById(btn.id).innerHTML = "Hide List";
+					lst.style.visibility = "visible"; 
+				}
+				else {
+					// change button label to hide
+					document.getElementById(btn.id).innerHTML = "Show List";
+					lst.style.visibility = "hidden";
+				}
+				
+				console.log("DEBUG - After: " + elt.innerHTML);
+			
+				print_stars();
+			}
+		</script>
+		
+		
+		
+	</head>
+	
+	<body>
+		
+	
+		<h1>HTML List Examples with hrefs:</h1>
+		<hr>
+		
+		<!-- list 0: index list -->
+		<div class="list_divs" id="list_0"> 
+			<h2>List Index (each links to a list below)</h2>
+			<ul class="lists">
+				<li>List 1 : &lt;DL&gt; (<a href=#list_1>ISOs</a>)</li>
+				<li>List 2 : &lt;OL&gt; (<a href=#list_2>Lemons</a>)</li>
+				<li>List 3 : &lt;UL&gt; (<a href=#list_3>Unis</a>)</li>
+			</ul>
+		</div>
+		<hr>
+		
+		<button id="button_1" onclick="toggle(this)">Show List</button>
+		<!-- list 1 -->
+		<div class="list_divs" id="list_1"> 
+			<h2>List 1: Important ISO Codes</h2>
+			<dl class="lists">
+				<dt>ISO 8601</dt>
+				<dd>DATE AND TIME FORMAT</dd>
+				
+				<dt>ISO 3166</dt>
+				<dd>COUNTRY CODES</dd>
+				
+				<dt>ISO 4217</dt>
+				<dd>CURRENCY CODES</dd>
+				
+				<dt>ISO 639</dt>
+				<dd>LANGUAGE CODES</dd>
+			</dl>
+		</div>
+		<hr>
+		
+		<button id="button_2" onclick="toggle(this)">Show List</button>
+		<!-- list 2 -->
+		<div class="list_divs" id="list_2"> 
+			<h2>List 2: How to Make Lemonade</h2>
+			<ol class="lists">
+				<li>Juice the lemons.</li>
+				<li>Dissolve the sugar with lemon juice.</li>
+				<li>Add water.</li>
+			</ol>		
+		</div>
+		<hr>
+		
+		<button id="button_3" onclick="toggle(this)">Show List</button>
+		<!-- list 3 -->
+		<div class="list_divs" id="list_3"> 
+			<h2>List 3: Local Colleges/Universities</h2>
+			<ul class="lists">
+			
+				<li>
+					<a href="https://www.cuaa.edu/" target="uni">
+						<span class="unicolors">
+							C
+						</span>
+						<span>
+							Concordia University Ann Arbor
+						</span>
+					</a>
+				</li>
+				
+				<li>
+					<a href="https://www.emich.edu/" target="uni">
+						<span class="unicolors">
+							E
+						</span>
+						<span>
+							Eastern Michigan University
+						</span>	
+					</a>				
+				</li>
+				
+				<li>
+					<a href="https://www.umich.edu/" target="uni">
+						<span class="unicolors">
+							M
+						</span>
+						<span>
+							University of Michigan
+						</span>
+					</a>
+				</li>
+				
+				<li>
+					<a href="https://www.wccnet.edu/" target="uni">
+						<span class="unicolors">
+							WCC
+						</span>
+						<span>
+							Washtenaw Community College
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>		
+		
+		<script>
+			// new js code for lab 05
+			// use trial & error & console.log() messages to test best location for code
+			
+			const elts = document.getElementsByClassName("lists");
+			
+			for(i = 1; i < 4; i++)
+			{
+				elts[i].style.visibility = "hidden";
+			}
+		
+		</script>
+		
+		
+		<hr>
+		
+		<!-- copyright info -->
+		<div id="copyright"> 
+			<p>&copy; 2022 - Alex McNulty</p>
+		</div>
+	</body>
+</html>
